@@ -61,7 +61,13 @@ function App() {
   }
 
   const handleReset=()=>{
-
+    setInterest(0)
+    setPrinciple(0)
+    setRate(0)
+    setYear(0)
+    setIsPrincipleInValid(false)
+    setIsRateInValid(false)
+    setIsYearInValid(false)
   }
 
   return (
@@ -75,16 +81,16 @@ function App() {
         </div>
         <form className='mt-5'>
           <div className="mb-3">
-            <TextField onChange={e => inputValidation(e.target)} name='principle' className='w-100' id="principle" label="₹ Principle Amount" variant="outlined" />
+            <TextField value={principle || ''} onChange={e => inputValidation(e.target)} name='principle' className='w-100' id="principle" label="₹ Principle Amount" variant="outlined" />
           </div>
           {isPrincipleInValid && <div className="mb-3 text-danger">Invalid principle amount!!</div>}
           <div className="mb-3">
-            <TextField onChange={e => inputValidation(e.target)} className='w-100' name='rate' id="rate" label="Rate of Interest (p.a) %" variant="outlined" />
+            <TextField value={rate || ''} onChange={e => inputValidation(e.target)} className='w-100' name='rate' id="rate" label="Rate of Interest (p.a) %" variant="outlined" />
           </div>
           {isRateInValid && <div className="mb-3 text-danger">Invalid rate!!</div>}
 
           <div className="mb-3">
-            <TextField onChange={e => inputValidation(e.target)} className='w-100' name='year' id="year" label="Time Period (Yr)" variant="outlined" />
+            <TextField value={year || ''} onChange={e => inputValidation(e.target)} className='w-100' name='year' id="year" label="Time Period (Yr)" variant="outlined" />
           </div>
           {isYearInValid && <div className="mb-3 text-danger">Invalid year!!</div>}
 
